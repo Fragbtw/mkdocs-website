@@ -1,0 +1,38 @@
+---
+date: 2024-04-11
+categories:
+    - Documentation
+tags:
+    - Mkdocs
+---
+
+# My First MKDocs Experience
+
+Today i "kinda" learned how to deploy a documentation site! :D
+
+
+# My first Grasshopper real project experience. / Il mio primo vero Progetto con Grasshopper
+
+Project Report: Real-Time Parametric Geometry via UDP (Arduino R4 and Grasshopper)
+
+Hardware & Software
+| :--- | :--- | :--- |
+| Arduino R4 Minima<br>+ Sensore | Protocollo UDP<br>Porta 8080 | Rhino / Grasshopper<br>+ Firefly Plugin<br>+ Script Python 3 |
+
+The objective of this project is the creation of a digital and interactive installation based on the concept of Interaction Design, where a virtual geometric structure responds in real time to stimuli coming from the physical environment. The system combines the computational modeling power of Rhinoceros and Grasshopper with the hardware reading capabilities of an Arduino Uno R4 Minima board. Conceptually, the work is based on the creation of a responsive surface composed of hexagonal polygons. The movement and variation of these elements are not manually animated or managed via mouse, but are driven entirely by sensitivity data collected from a sensor connected to Arduino. To bridge the physical and digital worlds smoothly and without latency, the sensor data is transmitted over the local network using the UDP protocol on port 8080, and subsequently intercepted inside Grasshopper using the Firefly plug-in.
+
+The generative algorithm developed on the Grasshopper canvas is divided into four sequential logical steps. In the first phase, an abstract mathematical grid is constructed. Through the definition of numerical domains and the use of a Cross Reference component, the software generates a perfect geometric matrix of 25 total points, arranged in a 5 by 5 configuration on the two-dimensional plane. This grid serves as the baseline for the spatial layout of the entire system. In the second phase, the attractor point logic comes into play. A static control point is placed exactly in the center of the grid. The system constantly calculates the vector distance between this center and each of the 25 points of the surrounding matrix. The resulting distance values are processed through mathematical division and addition operations, generating a smooth numerical gradient that propagates from the center towards the periphery of the geometric field.
+
+The third phase deals with the actual genesis of the form and its transformation. A 6-sided hexagonal polygon is modeled on each of the grid points. In order for these hexagons to change size harmoniously, the previously calculated distance values are funneled into a numerical mapping module called Remap Numbers. This tool normalizes the raw data within a customized and flexible scale range. The resulting numbers are linked directly to the scale factor of the geometries: in this way, the hexagons positioned close to the center respond to the deformation differently compared to the peripheral ones. The fourth and final phase represents the interactive core of the project, namely the network connection. The Arduino Uno R4 Minima board constantly detects environmental variations via its sensor and sends these data packets over the local network. Within Grasshopper, the Firefly plug-in listens on port 8080 and captures this data string in real time. The raw information is immediately processed by a component programmed in Python 3, which converts it into clean numerical variables. These variables directly influence the remapping domains and the size of the polygons. Thanks to a Trigger component set to just 10 milliseconds, the entire canvas is recalculated one hundred times per second. This guarantees an extremely fluid animation of the structure and an instantaneous interaction: every minimal change in sensitivity perceived by the Arduino translates immediately into a visual metamorphosis of the geometric grid on the screen.
+
+--- ITALIAN VERSION ---
+
+L’obiettivo di questo progetto è la realizzazione di un’installazione digitale e interattiva basata sul concetto di Interaction Design, in cui una struttura geometrica virtuale reagisce in tempo reale agli stimoli provenienti dall’ambiente fisico. Il sistema unisce le potenzialità di modellazione computazionale di Rhinoceros e Grasshopper con le capacità di lettura hardware di una scheda Arduino Uno R4 Minima. Da un punto di vista concettuale, l'opera si basa sulla creazione di una superficie reattiva composta da poligoni esagonali. Il movimento e la variazione di questi elementi non sono animati a mano o gestiti tramite mouse, ma vengono guidati interamente dai dati di sensibilità raccolti da un sensore collegato ad Arduino. Per connettere il mondo fisico a quello digitale in modo fluido e senza ritardi, i dati del sensore vengono trasmessi via rete locale sfruttando il protocollo UDP sulla porta 8080, e successivamente intercettati dentro Grasshopper tramite il plug-in Firefly.
+
+L'algoritmo generativo sviluppato sulla tela di Grasshopper si articola in quattro passaggi logici consequenziali. Nella prima fase viene costruita una griglia matematica astratta. Attraverso la definizione di intervalli numerici e l'utilizzo di un componente di Cross Reference, il software genera una matrice geometrica perfetta di 25 punti totali, disposti in una configurazione 5 per 5 sul piano bidimensionale. Questa griglia fa da base per la spazializzazione dell'intero sistema. Nella seconda fase entra in gioco la logica del punto attrattore. Viene inserito un punto di controllo statico posizionato esattamente al centro della griglia. Il sistema calcola costantemente la distanza vettoriale che intercorre tra questo centro e ognuno dei 25 punti della matrice circostante. I valori di distanza ottenuti vengono elaborati attraverso operazioni matematiche di divisione e addizione, generando un gradiente numerico sfumato che si propaga dal centro verso la periferia del campo geometrico.
+
+La terza fase si occupa della vera e propria genesi della forma e della sua trasformazione. Su ognuno dei punti della griglia viene modellato un poligono esagonale a 6 lati. Per fare in modo che questi esagoni cambino dimensione in modo armonico, i valori di distanza calcolati precedentemente vengono convogliati in un modulo di rimappatura numerica chiamato Remap Numbers. Questo strumento normalizza i dati grezzi all'interno di un intervallo di scala personalizzato e flessibile. I numeri risultanti vengono agganciati al fattore di scala delle geometrie: in questo modo, gli esagoni posizionati vicino al centro risponderanno alla deformazione in modo differenziato rispetto a quelli periferici. La quarta e ultima fase rappresenta il cuore interattivo del progetto, ovvero il collegamento di rete. La scheda Arduino Uno R4 Minima rileva costantemente le variazioni ambientali tramite il suo sensore e invia questi pacchetti di informazioni sulla rete locale. All'interno di Grasshopper, il plug-in Firefly rimane in ascolto sulla porta 8080 e cattura questa stringa di dati in tempo reale. Le informazioni grezze vengono immediatamente processate da un componente programmato in Python 3, che le converte in variabili numeriche pulite. Queste variabili vanno a influenzare direttamente i domini di rimappatura e la dimensione dei poligoni. Grazie a un componente di Trigger impostato a soli 10 millisecondi, l'intera tela viene ricalcolata cento volte al secondo. Questo garantisce un'animazione della struttura estremamente fluida e un'interazione istantanea: ogni minimo cambio di sensibilità percepito dall'Arduino si traduce immediatamente in una metamorfosi visiva della griglia geometrica sullo schermo.
+
+
+
+
