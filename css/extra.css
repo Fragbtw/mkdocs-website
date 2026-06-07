@@ -1,0 +1,21 @@
+
+@import url('https://fonts.google.com/specimen/Host+Grotesk');
+
+@import url('https://fonts.google.com/specimen/Bebas+Neue');
+
+
+body {
+    font-family: 'Host Grotesk', sans-serif;
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  p {
+    font-family: 'Host Grotesk', sans-serif;
+  }
+  
+  .md-header-nav .md-logo {
+    font-family: 'Bebas Neue', sans-serif;
+  }
